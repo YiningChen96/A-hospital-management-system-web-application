@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+<title>Login</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="/css/style_login.css" type="text/css" media="all" /><!-- Style-CSS -->
+<link href="/css/font-awesome.css" rel="stylesheet"><!-- font-awesome-icons -->
+</head>
+
+<body>
+<section class="w3l-form-36">
+	<div class="form-36-mian section-gap">
+		<div class="wrapper">
+			<div class="form-inner-cont">
+				<h3>Password or email is wrong, please try again !</h3>
+				<form method="post" class="signin-form" name="submitform">
+					<div class="form-input">
+						<span class="fa fa-envelope-o" aria-hidden="true"></span> <input type="text" name="account" placeholder="email" required />
+					</div>
+					<div class="form-input">
+						<span class="fa fa-key" aria-hidden="true"></span> <input type="password" name="password" placeholder="Password" required />
+					</div>
+					<div class="login-remember d-grid">
+						<input type="submit" class="btn theme-button" onclick="return validate1()" formaction="/account/sign_up" value="Sign up" style="width: 100px;">
+						<input type="submit" class="btn theme-button" onclick="return validate2()" formaction="/account/log_in" value="log in" style="width: 100px;">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</section>
+<script>
+	function validate1(){
+	var x=document.forms["submitform"]["account"].value;
+	var y=document.forms["submitform"]["password"].value;
+	var template=/^\w+$/;
+	  var atpos=x.indexOf("@");
+	  var dotpos=x.lastIndexOf(".");
+	  if (x==null || x==""  || atpos<1 || dotpos<atpos+2){
+			alert("This is not a valid email address, please re-enter it.");
+			return false;
+	  }
+	if (y.length!=8 || !template.test(y)){
+		  alert("The password can only consist of eight letters, numbers or underscores, please re-enter!");
+		  return false;
+	}
+	alert("Sign-up successful !");
+	}
+</script>
+	<script>
+		function validate2(){
+		var x=document.forms["submitform"]["account"].value;
+		var y=document.forms["submitform"]["password"].value;
+		var template=/^\w+$/;
+  		var atpos=x.indexOf("@");
+  		var dotpos=x.lastIndexOf(".");
+  		if (x==null || x==""  || atpos<1 || dotpos<atpos+2){
+    			alert("This is not a valid email address, please re-enter it.");
+    			return false;
+  		}
+		if (y.length!=8 || !template.test(y)){
+		  	alert("The password can only consist of eight letters, numbers or underscores, please re-enter!");
+		  	return false;
+		}
+		}
+	</script>
+
+</body>
+
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+<title>Login</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="/css/style_login.css" type="text/css" media="all" /><!-- Style-CSS -->
+<link href="/css/font-awesome.css" rel="stylesheet"><!-- font-awesome-icons -->
+<style>
+	.button {
+		background-color:#21d1c2;
+		color: #ffffff;
+		border:none; 
+		border-radius:20px; 
+		min-height:80px; 
+		min-width: 120px;
+		margin: 5%;
+	  }
+</style>
+</head>
+
+<body>
+<section class="w3l-form-36">
+	<div class="form-36-mian section-gap">
+		<div class="wrapper">
+			<div class="form-inner-cont">
+				<h3>Welcome to Hospital Management System</h3>
+				<form method="post" class="signin-form" name="submitform">
+					<div class="login-remember d-grid">
+						<input type="submit" class="button" value="Department" formaction="/department/first">
+						<input type="submit" class="button" value="Doctor" formaction="/doctor/first">
+						<input type="submit" class="button" value="Nurse" formaction="/nurse/first">
+						<input type="submit" class="button" value="Patient" formaction="/patient/first">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</section>
+</body>
+</html>

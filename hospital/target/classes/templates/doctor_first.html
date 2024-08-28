@@ -1,0 +1,142 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>all</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+    img{max-width:100%;}
+    body {
+        margin-left: 1%;
+        background: url('/images/doctor.jpg');
+	background-size:cover;
+    }
+
+    table {
+      counter-reset: rowNumber;
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+     
+    td,th {
+        padding: 20;
+    }
+
+    .tableclass{
+    tr > td:first-child::before{
+      counter-increment: rowNumber;
+      content: counter(rowNumber);
+    }
+    }
+
+    .main-table {
+      border-collapse: collapse;
+      border-spacing: 0;
+      empty-cells: show;
+      border: 1px solid #cbcbcb;
+  }
+
+  .main-table td,.main-table th {
+    border-left: 1px solid #85c4e7;
+    border-width: 0 0 0 1px;
+    font-size: inherit;
+    margin: 0;
+    overflow: visible;
+    padding: .5em 1em;
+}
+ 
+.main-table thead {
+    background-color: #e0e0e0;
+    color: #000;
+    text-align: left;
+    vertical-align: bottom;
+}
+ 
+.main-table-first {
+    background-color: #11c6c3;
+}
+
+.main-table-second {
+  background-color: #cddff0;
+}
+
+.input-text{
+  width: 100px;
+  height: 30px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance:none ;
+  outline: 0;
+  padding:0 8px;
+  border-radius:30px;
+  margin: 10px;
+  background-color: #f6f9f9;
+}
+
+.input-button{
+  width: 100px;
+  height: 50px;
+  margin: 3%;
+  border-radius:15px;
+  background-color: #acede9;
+}
+
+.main{
+  width:500px;
+
+}
+
+</style>
+</head>
+
+<body>
+  <div class="main">
+    <form encType="multipart/form-data" method="post" name="submitform">
+      <table>
+        <input type="submit" value="return" formaction="/doctor/return" style="width: 100px;" class="input-button">
+        <tr>
+          <td><div width:"20px">DOCTOR_NUMBER:</div><input type="text" name="DOCTOR_NUMBER" class="input-text"></td>
+        </tr>
+        <tr>
+          <td><div width:"20px">NAME:</div><input type="text" name="NAME" class="input-text"></td>
+        </tr>
+        <tr>
+          <td><div width:"20px">AGE:</div><input type="text" name="AGE" class="input-text"></td>
+        </tr>
+        <tr>
+          <td><div width:"20px">SEX:</div><input type="text" name="SEX" class="input-text"></td>
+        </tr>
+        <tr>
+          <td><div width:"20px">TITLE:</div><input type="text" name="TITLE" class="input-text"></td>
+        </tr>
+        <tr>
+          <td><div width:"20px">POSITION:</div><input type="text" name="POSITION" class="input-text"></td>
+        </tr>
+        <tr>
+          <td><div width:"20px">DEPARTMENT:</div><input type="text" name="DEPARTMENT" class="input-text"></td>
+        </tr>
+      </table>
+      <table>
+        <tr>
+          <td><input type="submit" value="add" id="submitBtn1" formaction="/doctor/add" style="width: 100px;" class="input-button" onclick="return validateID()"></td>
+          <td><input type="submit" value="find" id="submitBtn2" formaction="/doctor/find" style="width: 100px;" class="input-button"></td>
+          <td><input type="submit" value="delete" id="submitBtn3" formaction="/doctor/delete" style="width: 100px;" class="input-button" onclick="return validateID()"></td>
+          <td><input type="submit" value="all" id="submitBtn3" formaction="/doctor/all" style="width: 100px;" class="input-button"></td>
+        </tr>
+      </table>
+      <p>
+        There is no need to fill in all the fields when using the 'find' function. When using the 'delete' function, only the first item needs to be filled in. All items need to be filled in when using the 'add' function. There is no need to fill in any fields when using the 'all' function.
+      </p>
+    </form>
+  </div>
+    <script>
+      function validateID(){
+      var x=document.forms["submitform"]["DOCTOR_NUMBER"].value;
+      if (x==null || x==""){
+        alert("The DOCTOR_NUMBER cannot be empty, please enter the DOCTOR_NUMBER.");
+        return false;
+      }
+    }
+    </script>
+
+</body>
+</html>

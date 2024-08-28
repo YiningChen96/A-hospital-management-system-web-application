@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>all</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+     
+    body {
+        margin-left: 1%;
+    }
+
+    table {
+      counter-reset: rowNumber;
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+     
+    td,th {
+        padding: 20;
+    }
+
+    .tableclass{
+    tr > td:first-child::before{
+      counter-increment: rowNumber;
+      content: counter(rowNumber);
+    }
+    }
+
+    .main-table {
+      border-collapse: collapse;
+      border-spacing: 0;
+      empty-cells: show;
+      border: 1px solid #cbcbcb;
+  }
+
+  .main-table td,.main-table th {
+    border-left: 1px solid #85c4e7;
+    border-width: 0 0 0 1px;
+    font-size: inherit;
+    margin: 0;
+    overflow: visible;
+    padding: .5em 1em;
+}
+ 
+.main-table thead {
+    background-color: #e0e0e0;
+    color: #000;
+    text-align: left;
+    vertical-align: bottom;
+}
+ 
+.main-table-first {
+    background-color: #11c6c3;
+}
+
+.main-table-second {
+  background-color: #cddff0;
+}
+
+.input-text{
+  width: 100px;
+  height: 30px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance:none ;
+  outline: 0;
+  padding:0 8px;
+  border-radius:30px;
+  margin: 10px;
+  background-color: #f6f9f9;
+}
+
+.input-button{
+  width: 100px;
+  height: 50px;
+  margin: 3%;
+  border-radius:15px;
+  background-color: #acede9;
+}
+
+.main{
+  width:500px;
+
+}
+
+</style>
+</head>
+
+<body>
+  <div class="main">
+    <div class="tableclass">
+      <form method="post">
+      <input type="submit" value="return" formaction="/department/first" style="width: 100px;" class="input-button">
+      </form>
+      <table class="main-table">
+        <thead>
+          <tr class="main-table-first">
+            <th>ID</th>
+            <th>NAME</th>
+            <th>PHONE_NUMBER</th>
+            <th>CLINICLE_DIRECTOR</th>
+            <th>HEAD_NURSE</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="lists : ${list}" class="main-table-second">
+            <td></td>
+            <td th:text="${lists.NAME}" />
+            <td th:text="${lists.PHONE_NUMBER}" />
+            <td th:text="${lists.CLINICLE_DIRECTOR}" />
+            <td th:text="${lists.HEAD_NURSE}" />
+          </tr>
+        </tbody>
+    </table>
+    </div>
+  </div>
+</body>
+</html>
